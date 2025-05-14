@@ -1,0 +1,24 @@
+{
+  "name": "webmention-engine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @11ty/eleventy --dryrun",
+    "build": "npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cascadeproto/webmention-engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cascadeproto/webmention-engine/issues"
+  },
+  "homepage": "https://github.com/cascadeproto/webmention-engine#readme",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

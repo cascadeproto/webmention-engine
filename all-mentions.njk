@@ -1,0 +1,34 @@
+---
+permalink: "all-mentions.json"
+---
+[
+    {% for item in collections.mentions %}{
+        "type": "{{ item.data.type }}",
+        "author": {
+            "type": "{{ item.data.author.type }}",
+            "name": "{{ item.data.author.name }}",
+            "photo": "{{ item.data.author.photo }}",
+            "url": "{{ item.data.author.url }}"
+        },
+        "url": "{{ item.data.url }}",
+        "published": "{{ item.data.published }}",
+        "wm-received": "{{ item.data["wm-received"] }}",
+        "wm-id": {{ item.data["wm-id"] }},
+        "wm-source": "{{ item.data["wm-source"] }}",
+        "wm-target": "{{ item.data["wm-target"] }}",
+        "wm-protocol": "{{ item.data["wm-protocol"] }}",
+        "content": {% if item.data.content %}{
+            "html": {% if item.data.content.html %}"{{ item.data.content.html | jsonHtml | safe }}"{% else %}null{% endif %},
+            "text": "{{ item.data.content.text }}"
+        }{% else %}null{% endif %},
+        "in-reply-to": {% if item.data["in-reply-to"] %}"{{ item.data["in-reply-to"] }}"{% else %}null{% endif %},
+        "like-of": {% if item.data["like-of"] %}"{{ item.data["like-of"] }}"{% else %}null{% endif %},
+        "repost-of": {% if item.data["repost-of"] %}"{{ item.data["repost-of"] }}"{% else %}null{% endif %},
+        "bookmark-of": {% if item.data["bookmark-of"] %}"{{ item.data["bookmark-of"] }}"{% else %}null{% endif %},
+        "mention-of": {% if item.data["mention-of"] %}"{{ item.data["mention-of"] }}"{% else %}null{% endif %},
+        "rsvp": {% if item.data.rsvp %}"{{ item.data.rsvp }}"{% else %}null{% endif %},
+        "wm-property": "{{ item.data["wm-property"] }}",
+        "wm-private": {{ item.data["wm-private"] }}
+    }{% if not loop.last %},
+    {% endif %}{% endfor %}
+]

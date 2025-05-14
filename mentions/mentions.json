@@ -1,0 +1,4 @@
+{
+    "tags": "mentions",
+    "permalink": "{{ page.filePathStem }}.json"
+}
